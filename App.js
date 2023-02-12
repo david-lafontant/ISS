@@ -1,13 +1,22 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, SafeAreaView } from "react-native";
-import Forms from "./src/pages/forms/Forms";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
 import Header from "./src/components/header/Header";
-
+import { Forms, Home, Finish } from "./src/pages/index";
+const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <Forms />
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Home">
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="Form" component={Forms} />
+          <Drawer.Screen name="Finish" component={Finish} />
+        </Drawer.Navigator>
+      </NavigationContainer>
 
       <StatusBar style="auto" />
     </View>
