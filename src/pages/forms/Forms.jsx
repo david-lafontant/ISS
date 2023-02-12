@@ -13,18 +13,9 @@ import {
   SubmitInfos,
   ReviewInfos,
   DocumentsInfos,
-} from "../../index";
+} from "../../components/index";
 
-const Forms = () => {
-  // const [firstName, onChangeFirstName] = React.useState("");
-  // const [lastName, onChangeLastName] = React.useState("");
-  // const [rue, onChangeRue] = React.useState("");
-  // const [commune, onChangeCommune] = React.useState("");
-  // const [NIF, onChangeNIF] = React.useState("");
-  // const [CIN, onChangeCIN] = React.useState("");
-  // const [timbre, onChangeTimbre] = React.useState("");
-  // const [photo, onChangePhoto] = React.useState("");
-
+const Forms = ({ navigation }) => {
   const [person, setPerson] = React.useState({
     firstName: "",
     lastName: "",
@@ -75,6 +66,10 @@ const Forms = () => {
           <Text>Next</Text>
         </Pressable>
       </View>
+      <Button
+        title="Go to Finish"
+        onPress={() => navigation.navigate("Finish")}
+      />
     </SafeAreaView>
   );
 };
