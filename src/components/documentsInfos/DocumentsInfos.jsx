@@ -2,10 +2,6 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import React, { useState } from "react";
 
 const DocumentsInfos = ({ person, setPerson }) => {
-  const [NIF, onChangeNIF] = React.useState("");
-  const [CIN, onChangeCIN] = React.useState("");
-  const [timbre, onChangeTimbre] = React.useState("");
-  const [photo, onChangePhoto] = React.useState("");
   return (
     <View style={styles.infoWrapper}>
       <Text>DocumentsInfos</Text>
