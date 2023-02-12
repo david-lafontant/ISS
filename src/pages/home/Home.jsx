@@ -1,13 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
 
-const Home = () => {
-  return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  );
-};
+const Home = ({ navigation }) => (
+  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <Text>Home Screen</Text>
+    <Button title="Go to Form" onPress={() => navigation.navigate("Form")} />
+  </View>
+);
 
 export default Home;
 
