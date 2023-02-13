@@ -26,9 +26,9 @@ const Forms = ({ navigation }) => {
     stamp: "",
     photo: "",
   });
-
   const [screen, setScreen] = React.useState(0);
   const screenTitle = ["Infomasyon pesonel", "Pyes", "Fen"];
+
   const screenDisplay = () => {
     if (screen === 0) {
       return <PersonalInfos person={person} setPerson={setPerson} />;
@@ -41,7 +41,7 @@ const Forms = ({ navigation }) => {
       case 2:
         return <ReviewInfos person={person} />;
       case 3:
-        return <SubmitInfos />;
+        return <SubmitInfos person={person} />;
       default:
         const msg = "error";
         break;
