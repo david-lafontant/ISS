@@ -10,7 +10,7 @@ const DocumentsInfos = ({ person, setPerson }) => {
         onChangeText={(NIF) => {
           setPerson({ ...person, NIF });
         }}
-        value={person.NIF}
+        value={person.NIF || ""}
         placeholder="NIF"
         keyboardType="numeric"
       />
@@ -19,7 +19,7 @@ const DocumentsInfos = ({ person, setPerson }) => {
         onChangeText={(CIN) => {
           setPerson({ ...person, CIN });
         }}
-        value={person.CIN}
+        value={person.CIN || ""}
         placeholder="CIN"
         keyboardType="numeric"
       />
@@ -29,7 +29,7 @@ const DocumentsInfos = ({ person, setPerson }) => {
         onChangeText={(stamp) => {
           setPerson({ ...person, stamp });
         }}
-        value={person.stamp}
+        value={person.stamp || ""}
         placeholder="timbre"
         keyboardType="numeric"
       />
@@ -39,7 +39,7 @@ const DocumentsInfos = ({ person, setPerson }) => {
         onChangeText={(photo) => {
           setPerson({ ...person, photo });
         }}
-        value={person.photo}
+        value={person.photo || ""}
         placeholder="foto timb la"
       />
     </View>
