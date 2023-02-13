@@ -7,6 +7,9 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import Header from "./src/components/header/Header";
 import { Forms, Home, Finish } from "./src/pages/index";
+import { store } from "./src/store/store";
+import { Provider } from "react-redux";
+
 const Drawer = createDrawerNavigator();
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -16,27 +19,29 @@ export default function App() {
   }, 1000);
 
   return (
-    <AnimatedSplash
-      translucent={true}
-      isLoaded={loading}
-      logoImage={require("./assets/logo3.png")}
-      backgroundColor={"#262626"}
-      logoHeight={200}
-      logoWidth={200}
-    >
-      <View style={styles.container}>
-        <Header />
-        <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Home">
-            <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Form" component={Forms} />
-            <Drawer.Screen name="Finish" component={Finish} />
-          </Drawer.Navigator>
-        </NavigationContainer>
+    <Provider store={store}>
+      <AnimatedSplash
+        translucent={true}
+        isLoaded={loading}
+        logoImage={require("./assets/logo3.png")}
+        backgroundColor={"#262626"}
+        logoHeight={200}
+        logoWidth={200}
+      >
+        <View style={styles.container}>
+          <Header />
+          <NavigationContainer>
+            <Drawer.Navigator initialRouteName="Home">
+              <Drawer.Screen name="Home" component={Home} />
+              <Drawer.Screen name="Form" component={Forms} />
+              <Drawer.Screen name="Finish" component={Finish} />
+            </Drawer.Navigator>
+          </NavigationContainer>
 
-        <StatusBar style="auto" />
-      </View>
-    </AnimatedSplash>
+          <StatusBar style="auto" />
+        </View>
+      </AnimatedSplash>
+    </Provider>
   );
 }
 

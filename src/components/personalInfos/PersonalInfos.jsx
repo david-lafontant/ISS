@@ -10,7 +10,7 @@ const PersonalInfos = ({ person, setPerson }) => {
         onChangeText={(lastName) => {
           setPerson({ ...person, lastName });
         }}
-        value={person.lastName}
+        value={person.lastName || ""}
         placeholder="Siyati"
       />
       <TextInput
@@ -18,7 +18,7 @@ const PersonalInfos = ({ person, setPerson }) => {
         onChangeText={(firstName) => {
           setPerson({ ...person, firstName });
         }}
-        value={person.firstName}
+        value={person.firstName || ""}
         placeholder="Non"
       />
       <TextInput
@@ -26,7 +26,7 @@ const PersonalInfos = ({ person, setPerson }) => {
         onChangeText={(street) => {
           setPerson({ ...person, street });
         }}
-        value={person.street}
+        value={person.street || ""}
         placeholder="Adres ...ex: #24 ri joli"
       />
       <TextInput
@@ -34,7 +34,7 @@ const PersonalInfos = ({ person, setPerson }) => {
         onChangeText={(city) => {
           setPerson({ ...person, city });
         }}
-        value={person.city}
+        value={person.city || ""}
         placeholder="Komin .. ex: petion-vil"
       />
     </View>
