@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addPerson } from "../../features/personSlice";
 
-const SubmitInfos = () => {
-  const onTap = () => {
-    console.log("Button touched!");
-  };
-
+const SubmitInfos = ({ person }) => {
+  const dispatch = useDispatch();
   return (
     <View>
       <Text>SubmitInfos</Text>
-      <Button title="SUBMIT" onPress={onTap} />
+      <Button title="SUBMIT" onPress={() => dispatch(addPerson(person))} />
     </View>
   );
 };
