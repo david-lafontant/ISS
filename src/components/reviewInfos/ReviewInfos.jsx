@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import QRCode from "react-native-qrcode-svg";
 
 const ReviewInfos = ({ person }) => {
   if (Object.values(person).includes("")) {
@@ -19,11 +18,8 @@ const ReviewInfos = ({ person }) => {
           <Text>Komin: {person.city}</Text>
           <Text>NIF: {person.NIF}</Text>
           <Text>CIN: {person.CIN}</Text>
-          <Text>No timbre: {person.timbre}</Text>
+          <Text>No timbre: {person.stamp}</Text>
           <Text>Photo: {person.photo}</Text>
-        </View>
-        <View>
-          <QRCode value={person.NIF} />
         </View>
       </View>
     );
