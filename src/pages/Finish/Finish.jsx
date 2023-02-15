@@ -8,6 +8,7 @@ const Finish = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Finish Screen</Text>
+      <QRCode value={person.photo} />
       <View>
         <Text style={styles.text}>Non: {person.firstName}</Text>
         <Text style={styles.text}>Siyati : {person.lastName}</Text>
@@ -17,9 +18,6 @@ const Finish = ({ navigation }) => {
         <Text style={styles.text}>CIN : {person.CIN}</Text>
         <Text style={styles.text}>No timbre : {person.stamp}</Text>
         <Text style={styles.text}>Photo : {person.photo}</Text>
-      </View>
-      <View>
-        <QRCode value={person.NIF} />
       </View>
       <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
     </View>
