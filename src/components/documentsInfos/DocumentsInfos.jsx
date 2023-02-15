@@ -1,7 +1,36 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
 import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Button, Image } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
 const DocumentsInfos = ({ person, setPerson }) => {
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setPerson({ ...person, ["photo"]: result.assets[0].uri });
+    }
+  };
+
+  const openCamera = async () => {
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setPerson({ ...person, ["photo"]: result.assets[0].uri });
+    }
+  };
+
   return (
     <View style={styles.infoWrapper}>
       <Text>DocumentsInfos</Text>
@@ -42,6 +71,17 @@ const DocumentsInfos = ({ person, setPerson }) => {
         value={person.photo || ""}
         placeholder="foto timb la"
       />
+
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
+        <Button title="Pick an image from camera roll" onPress={pickImage} />
+        <Button title="Take an image from camera" onPress={openCamera} />
+        {person.photo && (
+          <Image
+            source={{ uri: person.photo }}
+            style={{ width: 200, height: 200 }}
+          />
+        )}
+      </View>
     </View>
   );
 };

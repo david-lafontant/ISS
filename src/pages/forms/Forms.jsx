@@ -51,7 +51,7 @@ const Forms = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text>{screenTitle[screen]}</Text>
-      <View>{screenDisplay()}</View>
+
       <View style={styles.buttonContainer}>
         <Pressable
           style={styles.button}
@@ -66,6 +66,7 @@ const Forms = ({ navigation }) => {
           <Text>Next</Text>
         </Pressable>
       </View>
+      <View>{screenDisplay()}</View>
       <Button
         title="Go to Finish"
         onPress={() => navigation.navigate("Finish")}
