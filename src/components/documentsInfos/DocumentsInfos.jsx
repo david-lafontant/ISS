@@ -72,6 +72,17 @@ const DocumentsInfos = ({ person, setPerson }) => {
         value={person.photo || ""}
         placeholder="foto timb la"
       />
+
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
+        <Button title="Pick an image from camera roll" onPress={pickImage} />
+        <Button title="Take an image from camera" onPress={openCamera} />
+        {image && (
+          <Image
+            source={{ uri: person.photo }}
+            style={{ width: 200, height: 200 }}
+          />
+        )}
+      </View>
     </View>
   );
 };
