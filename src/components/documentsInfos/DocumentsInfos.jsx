@@ -4,7 +4,6 @@ import * as ImagePicker from "expo-image-picker";
 
 const DocumentsInfos = ({ person, setPerson }) => {
   const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
@@ -13,6 +12,22 @@ const DocumentsInfos = ({ person, setPerson }) => {
     });
 
     if (!result.canceled) {
+      setPerson({ ...person, ["photo"]: result.assets[0].uri });
+    }
+  };
+
+  const openCamera = async () => {
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
       setPerson({ ...person, ["photo"]: result.assets[0].uri });
     }
   };
