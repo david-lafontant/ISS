@@ -27,7 +27,6 @@ const DocumentsInfos = ({ person, setPerson }) => {
     console.log(result);
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
       setPerson({ ...person, ["photo"]: result.assets[0].uri });
     }
   };
@@ -76,7 +75,7 @@ const DocumentsInfos = ({ person, setPerson }) => {
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         <Button title="Take an image from camera" onPress={openCamera} />
-        {image && (
+        {person.photo && (
           <Image
             source={{ uri: person.photo }}
             style={{ width: 200, height: 200 }}
